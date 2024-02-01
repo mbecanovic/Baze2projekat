@@ -1,0 +1,38 @@
+.card text-center {
+    width: 20%;
+    height: 300px;
+    background-color: #fff; /* Bele boje */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Senka oko kontejnera */
+    display: flex;
+    align-items: center; /* Centriranje vertikalno */
+    padding: 20px; /* Razmak unutar kontejnera */
+  }
+
+.slika-kartice{
+  width: 50%;
+}
+.card{
+  width: 20rem;
+}
+.card:hover{
+  box-shadow: 1px 10px 20px 1px rgba(0,0,0,0.253)
+}
+
+.card-body{
+  padding: 3rem 0 !important;
+}
+.card-text{
+  font-size: 0.9rem;
+  padding: 0.4rem 1.9rem;
+}
+.container-fluid .row{
+  padding-top: 6rem;
+}
+
+.card-img-top{
+  transform: scale(1);
+}
+
+.card-img-top:hover{
+  transform: scale(1.1);
+}
