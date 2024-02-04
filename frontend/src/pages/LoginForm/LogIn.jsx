@@ -32,7 +32,7 @@ const LogIn = () => {
     })
     .catch(e=>{
       console.log(e)
-      alert("Moras da se registrujes")
+      alert("Greska pri prijavljivanju")
     })
 
     }

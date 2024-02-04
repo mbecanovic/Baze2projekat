@@ -44,13 +44,12 @@ const SignUp = () => {
       username, password
     })
     .then(res=>{
-      
-        alert("Uspesan unos")
+        alert("Uspesna registracija")
         history("/LogIn", {state:{id:username}})
       
     })
     .catch(e=>{
-      alert("User exist")
+      alert("Korisnik postoji")
       console.log(e)
     })
 

@@ -11,11 +11,11 @@ const jwt = require('jsonwebtoken');
 const cookieParser = require('cookie-parser')
 const secretKey = 'jwt-secret-key';
 
+
 app.use(express.json());
 app.use(express.urlencoded({extended: true}))
 app.use(cors());
 app.use(cookieParser());
-
 
 
 //login
@@ -72,21 +72,19 @@ app.post("/SignUp", async (req, res) => {
       const existingUser = await User.findOne({ username: username });
   
       if (existingUser) {
-        // User already exists
-        res.json("exist");
-        return;
-      } else {
-        
-        // User does not exist, save the new user
-        res.json("notexist");
+
+        res.status(500).json({ error: 'Registration failed' });
+      } 
+      else {
         await newUser.save();
-        return res.status(201).json({ message: 'Registration successful' });
+        res.status(201).json({ message: 'Registration successful' });
+        return;
       }
     } catch (error) {
       // Handle registration failure
       console.error(error);
-      return res.status(500).json({ error: 'Registration failed' });
-    }
+      res.status(500).json({ error: 'Registration failed' });
+    } 
   });
 
 
