@@ -1,0 +1,141 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;1,600&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body{
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-image: url('/src/assets/nebukaback1.jpg');
+  background-size: 100%;
+  backdrop-filter: blur(1px);
+}
+
+.container {
+  width: 100vw;
+  height: 100vh;
+  margin: 1rem;
+  text-align: center;
+}
+
+.homepage h1{
+      color: antiquewhite;
+}
+
+.nav {
+  background-color: transparent;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: 2rem;
+  padding: 0 1rem;
+}
+
+.site-title {
+  font-size: 2rem;
+}
+
+.nav ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+}
+
+.nav a {
+  color: inherit;
+  text-decoration: none;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding: .25rem;
+}
+
+.nav li.active {
+  background-color: #555;
+}
+
+.nav li:hover {
+  background-color: #777;
+}
+
+
+
+.sidebar{
+  margin-top: 0%;
+  padding: 0;
+  height: 100%;
+  width: auto;
+  background-color: rgb(123, 116, 145, 0.9);
+  position: fixed;
+  left: 0;
+  top: 0;
+  box-sizing: border-box;
+  outline: 20px solid rgb(123, 116, 145, 0.9);
+  
+}
+
+.sidebar-list{
+  margin-top: 30%;
+  height: auto;
+  padding: 0;
+  width: 100%;
+}
+.sidebar-list .row{
+  width: 120%;
+  height: 70px;
+  list-style-type: none;
+  margin: 0;
+  display: flex;
+  flex-direction: row;
+  
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.sidebar-list .row:hover{
+  cursor: pointer;
+  background-color: rgb(161, 153, 192);;
+}
+
+.row #icon{
+  flex: 30%;
+  display: grid;
+  place-items: center;
+}
+
+.row #title{
+  flex: 70%;
+}
+
+.logout {
+  position: fixed;
+  bottom: 20px;
+  left: 20px; /* Adjust this value according to your layout */
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  z-index: 1000;
+}
+
+.logout .row {
+  display: flex;
+  align-items: center;
+  padding: 5px 10px;
+  border-radius: 5px;
+  background-color: transparent;
+  transition: background-color 0.3s ease;
+}
+
+.logout .row:hover{
+  cursor: pointer;
+  background-color: rgb(161, 153, 192);
+  
+}
