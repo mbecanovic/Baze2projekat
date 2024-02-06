@@ -22,7 +22,7 @@ export const sidedata = [
     {
         title: "Profile",
         icon: <CgProfile />,
-        link: "/profile"
+        link: "/Profile"
     },
 
 ]

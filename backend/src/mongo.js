@@ -7,7 +7,7 @@ mongoose.connect("mongodb+srv://burago01:sifra1234@cluster0.dc1wqq3.mongodb.net/
     console.log("failed");
 })
 
-
+//user
 const userSchema = new mongoose.Schema({
     username:{
         type: String,
@@ -19,6 +19,8 @@ const userSchema = new mongoose.Schema({
     },
 });
 
-const User = mongoose.model("User", userSchema);
 
+
+//export usera
+const User = mongoose.model("User", userSchema);
 module.exports = User;

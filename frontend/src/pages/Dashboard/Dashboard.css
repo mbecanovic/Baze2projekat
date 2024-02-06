@@ -1,0 +1,70 @@
+.outerWrapper {
+    width: 100%; /* Adjust as needed */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.wrapper1 {
+    width: 70%;
+    background: transparent;
+    border-radius: 20px;
+    backdrop-filter: blur(30px);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.479);
+    padding: 20px;
+    margin-top: 40px;
+    text-align: center;
+}
+
+.wrapper1 h1 {
+    color: aliceblue;
+    margin: 0;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.inputWrapper {
+    display: flex;
+    flex-direction: column;
+    width: auto;
+}
+
+.inputWrapper input {
+    margin-bottom: 10px;
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+}
+
+.inputWrapper textarea {
+    margin-bottom: 10px;
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+}
+
+.text {
+    height: 200px;
+}
+.submitBtn {
+    margin-top: 10px;
+    align-self: flex-end;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+}
+
+.submitBtn:hover {
+    background-color: #0056b3;
+}
+
+.naslov h1{
+    color: aliceblue;
+}

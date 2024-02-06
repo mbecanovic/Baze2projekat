@@ -6,6 +6,7 @@ import {Routes, Route, useNavigate} from 'react-router-dom';
 import { useSignIn } from "react-auth-kit";
 import axios from "axios";
 import ProtectedRoutes from '../../components/PrivateRoute.jsx'
+import Dashboard from '../Dashboard/Dashboard.jsx'
 
 
 const LogIn = () => {
@@ -27,7 +28,7 @@ const LogIn = () => {
     .then(res=>{ 
 
         localStorage.setItem('token', res.data.token)
-        history("/Dashboard", {state:{id:username}})
+        history("/Dashboard", { state: {id: username} });
 
     })
     .catch(e=>{
@@ -46,6 +47,9 @@ const LogIn = () => {
     navigate('/SignUp');
   }
 
+  function getUsername(){
+    return username;
+  }
   return (
     <>
       <div className="wrapper">
@@ -73,6 +77,7 @@ const LogIn = () => {
         </form>
       </div>
     </>
+    
     );
 };
 
