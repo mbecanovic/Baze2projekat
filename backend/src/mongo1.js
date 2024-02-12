@@ -9,6 +9,10 @@ mongoose.connect("mongodb+srv://burago01:sifra1234@cluster0.dc1wqq3.mongodb.net/
 
 //clanak u novinama
 const clanakSchema = new mongoose.Schema({
+    username:{
+        type: String,
+        required: false
+    },
     title:{
         type: String,
         required: true

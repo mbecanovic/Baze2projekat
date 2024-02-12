@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import './Dashboard.css'
 import Sidebar from './Sidebar';
 import ImageUpload from "./ImageUpload";
@@ -11,12 +11,19 @@ const [title, setTitle] = useState('');
 const [subtitle, setSubtitle] = useState('');
 const [text, setText] = useState('');
 const [file, setFile] = useState('');
+const navigate = useNavigate();
+const navigateToLogIn = () => {
+    navigate('/LogIn');
+  }
+
+const [data, setData] = useState();
 
 //konekcija sa backendom
 const history = useNavigate();
 
 const upload = () => {
     const formData = new FormData()
+    formData.append('username', username)
     formData.append('file', file)
     formData.append("title", title)
     formData.append("subtitle", subtitle)
@@ -27,7 +34,7 @@ const upload = () => {
     axios.post('http://localhost:8000/upload', formData)
     .then(res => {history.push('/dashboard')})
     alert("Uspesan unos!")
-    window.location.reload(false)
+    //window.location.reload(false)
     .catch(er => console.log(er))
 }
       
@@ -47,14 +54,20 @@ const upload = () => {
     return <button className="submitBtn" onClick={deleteImage}>Obrisi sliku</button>
    } 
 
-   const location = useLocation();
-   const { username } = location.state || {};
-
+   useEffect(()=>{
+    axios.get('http://localhost:8000/LogIn')
+    .then(username => setData(username.data))
+    .catch(err => console.log(err))
+  }, [])
+    
+    const username = localStorage.getItem('username');
     console.log('uspesan dashboard');
     return(
+
         <div className="naslov">
         <Sidebar />
-        <h1>Welcome, {username}!</h1>
+        <h1 style={{ textDecoration: 'underline' }}>{username}'s dashboard</h1>
+        <button className="Logoutbttn" onClick={() => { localStorage.removeItem('token'); localStorage.removeItem('username'); navigateToLogIn()}}>Odjavi se</button>
         <div className="outerWrapper">
     <div className="wrapper1">
         <h1>Napisi clanak</h1>

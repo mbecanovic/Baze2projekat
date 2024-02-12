@@ -28,6 +28,9 @@ const LogIn = () => {
     .then(res=>{ 
 
         localStorage.setItem('token', res.data.token)
+        const ctoken = res.data.token;
+        localStorage.setItem('username', username)
+        console.log(username)
         history("/Dashboard", { state: {id: username} });
 
     })
@@ -45,6 +48,9 @@ const LogIn = () => {
   const navigate = useNavigate();
   const navigateToSignup = () => {
     navigate('/SignUp');
+  }
+  const navigateToHome = () => {
+    navigate('/Home');
   }
 
   function getUsername(){
@@ -74,6 +80,7 @@ const LogIn = () => {
           <div className="register-link">
             <p>Nemate nalog? <a href="#" onClick={navigateToSignup}>Registruj se</a></p>
           </div>
+          <a href="#" onClick={navigateToHome}>Vrati se na pocetnu stranu</a>
         </form>
       </div>
     </>

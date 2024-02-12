@@ -45,7 +45,7 @@ app.post('/LogIn', async (req, res) => {
         expiresIn: '1h',
       });
       
-      res.status(200).json({ token });
+      res.status(200).json({ token })
       return;
 
     } catch (error) {
@@ -107,13 +107,14 @@ const upload = multer({storage})
 
 app.post("/upload", upload.single("file"), async (req, res) => {
   try {
-    const { title, subtitle, text } = req.body;
+    const { username, title, subtitle, text } = req.body;
 
     // Check if req.file exists before accessing its properties
     const fileName = req.file ? req.file.filename : null;
 
     // Create a new clanak instance
     const newClanak = new clanak({
+      username: username,
       title: title,
       subtitle: subtitle,
       text: text,
@@ -121,16 +122,20 @@ app.post("/upload", upload.single("file"), async (req, res) => {
     });
 
     await newClanak.save();
-    res.status(201).json({ message: 'Uspesan unos' });
+    res.status(201).json({ message: 'Uspesan unos', clanak: newClanak });
+
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: 'Neuspesan unos' });
   }
 });
 
-app.get('/objavi', (req, res) => {
-
-})
+app.get('/objavi', async (req, res) => {
+  
+    clanak.find()
+    .then(data => res.json(data))
+    .catch(err => res.json(err))
+});
 
 
 

@@ -68,3 +68,25 @@
 .naslov h1{
     color: aliceblue;
 }
+
+.naslov{
+    margin-left: 90px;
+}
+
+.Logoutbttn {
+    position: absolute;
+  top: 10px; /* Prilagodite položaj dugmeta na vertikalnoj osi */
+  right: 10px; /* Prilagodite položaj dugmeta na horizontalnoj osi */
+  padding: 10px 20px;
+  background-color: transparent;
+  border: none;
+  color: #fff; /* Boja teksta */
+  cursor: pointer;
+  transition: background-color 0.3s ease; 
+}
+
+.Logoutbttn:hover {
+    background-color: rgb(35, 35, 35);
+}
+
+  

@@ -24,6 +24,9 @@ const SignUp = () => {
   const navigateToLogin = () => {
     navigate('/LogIn');
   }
+  const navigateToHome = () => {
+    navigate('/Home');
+  }
 
   function handleSelect(event){
     setValue(event.target.value)
@@ -114,6 +117,7 @@ const SignUp = () => {
           <div className="register-link">
             <p>Imate nalog?<a href="#" onClick={navigateToLogin}>Uloguj se</a></p>
           </div>
+          <a href="#" onClick={navigateToHome}>Vrati se na pocetnu stranu</a>
         </form>
       </div>
     </>

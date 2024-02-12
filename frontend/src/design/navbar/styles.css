@@ -20,6 +20,34 @@ body{
   height: 100vh;
   margin: 1rem;
   text-align: center;
+  color: aliceblue;
+  position: relative;
+}
+
+.header {
+  background-color: #141313; /* Siva boja pozadine */
+  height: 60px; /* Visina headera */
+  width: 100%; /* Širina headera */
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  margin-bottom: 20px; /* Dodajte razmak sa leve i desne strane */
+}
+
+.profilDugme{
+  position: absolute;
+  top: 10px; /* Prilagodite položaj dugmeta na vertikalnoj osi */
+  right: 20px; /* Prilagodite položaj dugmeta na horizontalnoj osi */
+  padding: 10px 20px;
+  background-color: transparent;
+  border: none;
+  color: #fff; /* Boja teksta */
+  cursor: pointer;
+  transition: background-color 0.3s ease; 
+}
+
+.profilDugme:hover {
+  background-color: #4e4e4e; /* Boja pozadine na hoveru */
 }
 
 .homepage h1{
@@ -27,7 +55,7 @@ body{
 }
 
 .nav {
-  background-color: transparent;
+  background-color: #141313; 
   color: white;
   display: flex;
   justify-content: space-between;
@@ -78,13 +106,32 @@ body{
   top: 0;
   box-sizing: border-box;
   outline: 20px solid rgb(123, 116, 145, 0.9);
-  
+  width: 60px;
+  height: 100vh;
+  position: fixed;
+  transition: width 0.3s ease;
+}
+.sidebar.open {
+  width: 200px;
+}
+.sidebar-toggle {
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 10px;
+}
+
+.sidebar-list, .logout {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  margin-right: 15px;
 }
 
 .sidebar-list{
   margin-top: 30%;
   height: auto;
-  padding: 0;
+  padding: 10;
   width: 100%;
 }
 .sidebar-list .row{
@@ -92,6 +139,7 @@ body{
   height: 70px;
   list-style-type: none;
   margin: 0;
+  margin-bottom: 20px;
   display: flex;
   flex-direction: row;
   
@@ -138,4 +186,105 @@ body{
   cursor: pointer;
   background-color: rgb(161, 153, 192);
   
+}
+
+
+
+.user-container {
+  display: inline-block;
+  width: 300px; /* Postavite fiksnu širinu */
+  height: 400px; /* Postavite fiksnu visinu */
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden; /* Skriva sadržaj koji prelazi granice */
+  white-space: nowrap; /* Sprječava prelamanje teksta */
+  backdrop-filter: blur(30px);
+  transition: height 0.3s ease;
+  margin-right: 30px;
+  flex: 0 0 calc(50% - 10px);
+  margin-bottom: 20px;
+  box-sizing: border-box;
+}
+
+.user-container:hover {
+  transform: translateY(-10px);
+}
+
+.user-container:last-child {
+  margin-right: 0; /* Uklanja margin sa poslednjeg kontejnera da ne bi bio višak prostora */
+}
+
+.user-info {
+  color: white;
+  overflow: hidden;
+  text-overflow: ellipsis; /* Ako tekst prelazi granice, koristi "..." za oznaku kraja */
+}
+
+.user-image img {
+  width: 70%; /* Slike će zauzimati 100% širine kontejnera */
+  height: auto;
+  display: block;
+  margin-top: 60px;
+}
+
+.tekst{
+  text-align: left;
+  font-size: 14px;
+}
+
+.image-container {
+  display: flex; /* Koristi Flexbox model za raspoređivanje elemenata */
+  flex-wrap: wrap; /* Omogućava elementima da prelaze u novi red */
+  justify-content: space-between;
+  margin-top: 30px;
+}
+
+@media (max-width: 768px) {
+  .user-container {
+    flex-basis: calc(100% - 20%); /* Na manjim ekranima, kontejneri će zauzimati punu širinu */
+    margin-right: 0;
+  }
+}
+
+.user-container:nth-child(n) {
+  margin-right: 0; /* Uklanja margin sa drugog elementa u paru da bi se izjednačili sa desne strane */
+}
+
+.popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgb(32, 32, 32);
+  padding: 20px;
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  color: white;
+  
+}
+.popup-content {
+  max-height: 400px; /* Maksimalna visina sadržaja pre nego što postane scroll-able */
+  overflow-y: auto;
+  text-align: center; /* Omogućava vertikalni scroll ako sadržaj prelazi visinu */
+}
+
+
+.popup button{
+  text-align: right;
+  color: #555;
+}
+
+.user-popup-image img {
+  width: 500px; /* Postavite fiksnu širinu slike */
+  height: 400px; /* Postavite fiksnue visinu slike */
+  display: block; /* Omogućite da se slika centralizuje */
+  margin: 0 auto; /* Centralizujte sliku horizontalno */
+  margin-top: 20px; /* Dodajte prostor iznad slike */
+}
+
+.popup-content button {
+  margin-top: 20px; /* Dodajte razmak između slike i dugmeta */
 }
