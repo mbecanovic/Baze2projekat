@@ -61,7 +61,6 @@ const upload = () => {
   }, [])
     
     const username = localStorage.getItem('username');
-    console.log('uspesan dashboard');
     return(
 
         <div className="naslov">

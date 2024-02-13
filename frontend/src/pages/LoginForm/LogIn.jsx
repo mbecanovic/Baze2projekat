@@ -29,8 +29,11 @@ const LogIn = () => {
 
         localStorage.setItem('token', res.data.token)
         const ctoken = res.data.token;
+        console.log(ctoken)
         localStorage.setItem('username', username)
-        console.log(username)
+        localStorage.setItem('tema', res.data.tema)
+        const ctema = res.data.tema;
+        console.log(ctema);
         history("/Dashboard", { state: {id: username} });
 
     })

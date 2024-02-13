@@ -9,6 +9,10 @@ mongoose.connect("mongodb+srv://burago01:sifra1234@cluster0.dc1wqq3.mongodb.net/
 
 //user
 const userSchema = new mongoose.Schema({
+    name:{
+        type: String,
+        required: false
+    },
     username:{
         type: String,
         required: true
@@ -17,6 +21,10 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    value:{
+        type: String,
+        required: true
+    }
 });
 
 

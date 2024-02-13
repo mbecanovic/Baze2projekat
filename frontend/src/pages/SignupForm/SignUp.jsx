@@ -8,18 +8,26 @@ import axios from "axios";
 
 const SignUp = () => {
   
+  
+  const [name, setName] = useState('');
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const [value, setValue] = useState(''); //tema o kojoj novinar zeli da pise
+
 
   const history = useNavigate();
   const [open, setOpen] = useState(false);
-  
+
   const kategorije = [ 
+    {label: 'Izaberi temu', value: 0},
     {label: 'Politika', value: 1},
     {label: 'Nauka', value: 2},
     {label: 'Drustvo', value: 3},
     {label: 'Dnevne', value: 4}
   ];
 
-  const [value, setValue] = useState('');
+  
+  console.log(value)
   const navigate = useNavigate();
   const navigateToLogin = () => {
     navigate('/LogIn');
@@ -28,14 +36,11 @@ const SignUp = () => {
     navigate('/Home');
   }
 
-  function handleSelect(event){
-    setValue(event.target.value)
-  }
-
-  const [username, setUsername] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-
+  
+  function handleSelect(event) {
+    const selectedOption = kategorije.find(option => option.value === parseInt(event.target.value));
+    setValue(selectedOption.label);
+}
  
 
   async function submit (e){
@@ -44,7 +49,7 @@ const SignUp = () => {
 
     try{
       await axios.post("http://localhost:8000/SignUp",{
-      username, password
+      name, username, password, value
     })
     .then(res=>{
         alert("Uspesna registracija")
@@ -63,14 +68,13 @@ const SignUp = () => {
 
   }
   
-
   return (
     <>
       <div className="wrapper">
         <form action="">
           <h1>SignUp</h1>
           <div className="input-box">
-           <input type="text" placeholder="Ime i prezime"></input>
+           <input type="text" placeholder="Ime i prezime" onChange={(e)=>{setName(e.target.value)}}></input>
            <FaUser className="icon" />
           </div>
           <div className="input-box">
@@ -108,6 +112,7 @@ const SignUp = () => {
             {kategorije.map(option =>(
               <option value={option.value}>{option.label}</option>
             ))}
+            
           </select>
 
           <p></p>
@@ -121,7 +126,9 @@ const SignUp = () => {
         </form>
       </div>
     </>
+    
     );
+    
 };
 
 export default SignUp;

@@ -6,6 +6,7 @@ const router = express.Router();
 const bcrypt = require('bcrypt');
 const User = require('./mongo.js');
 const clanak = require('./mongo1.js');
+const komentari = require('./mongocom.js');
 const multer = require('multer');
 const path = require('path')
 
@@ -27,6 +28,7 @@ app.post('/LogIn', async (req, res) => {
     try {
       const { username, password } = req.body;
       const user = await User.findOne({ username });
+      console.log(user)
 
       if (!user) {
         res.status(401).json({ error: 'Authentication failed' });
@@ -45,6 +47,7 @@ app.post('/LogIn', async (req, res) => {
         expiresIn: '1h',
       });
       
+      
       res.status(200).json({ token })
       return;
 
@@ -60,7 +63,7 @@ app.post('/LogIn', async (req, res) => {
 
 //sign up
 app.post("/SignUp", async (req, res) => {
-    const { username, password } = req.body;
+    const { name, username, password, value} = req.body;
     console.log(req.body);
     try {
       // Hash the password before saving it
@@ -68,8 +71,10 @@ app.post("/SignUp", async (req, res) => {
       
       // Create a new user instance with the hashed password
       const newUser = new User({
+        name: name,
         username: username,
-        password: hashedPassword
+        password: hashedPassword,
+        value: value
       });
   
       // Check if the username already exists
@@ -137,7 +142,58 @@ app.get('/objavi', async (req, res) => {
     .catch(err => res.json(err))
 });
 
+//delete
+app.delete('/objavi/:id', async (req, res) => {
+  try {
+      const deletedClanak = await clanak.findByIdAndDelete(req.params.id);
+      if (!deletedClanak) {
+          return res.status(404).send({ error: 'Clanak not found' });
+      }
+      res.send(deletedClanak);
+  } catch (error) {
+      res.status(500).send(error);
+  }
+});
 
+
+
+//dobijanje komentara
+app.post("/komentar", async (req, res) => {
+  try {
+    const { news_id, nickname, comment } = req.body;
+    console.log(req.body);
+    const newComment = new komentari({
+      news_id: news_id,
+      nickname: nickname,
+      comment: comment
+    });
+
+    await newComment.save();
+    const commentData = await komentari.find({});
+    res.status(201).json({ message: 'Uspesan unos', komentari: newComment, commentData: commentData });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Neuspesan unos' });
+  }
+});
+
+
+//slanje komentara
+app.get('/komentar', async (req, res) => {
+  
+  komentari.find()
+  .then(data => res.json(data))
+  .catch(err => res.json(err))
+});
+
+
+//salje podatke o user-u:
+app.get('/profil', async (req, res) => {
+  
+  User.find()
+  .then(data => res.json(data))
+  .catch(err => res.json(err))
+});
 
 app.listen(8000, ()=>{
     console.log("portconnected")

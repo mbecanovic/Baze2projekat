@@ -222,9 +222,15 @@ body{
   overflow: hidden;
   text-overflow: ellipsis; /* Ako tekst prelazi granice, koristi "..." za oznaku kraja */
 }
+.user-container img{
+  width: 85%;
+}
+.user-container h4{
+  text-align: center;
+}
 
 .user-image img {
-  width: 70%; /* Slike će zauzimati 100% širine kontejnera */
+  width: 100%; /* Slike će zauzimati 100% širine kontejnera */
   height: auto;
   display: block;
   margin-top: 60px;
@@ -278,8 +284,8 @@ body{
 }
 
 .user-popup-image img {
-  width: 500px; /* Postavite fiksnu širinu slike */
-  height: 400px; /* Postavite fiksnue visinu slike */
+  width: 100%; /* Postavite fiksnu širinu slike */
+  height: 30%; /* Postavite fiksnue visinu slike */
   display: block; /* Omogućite da se slika centralizuje */
   margin: 0 auto; /* Centralizujte sliku horizontalno */
   margin-top: 20px; /* Dodajte prostor iznad slike */
@@ -287,4 +293,94 @@ body{
 
 .popup-content button {
   margin-top: 20px; /* Dodajte razmak između slike i dugmeta */
+}
+
+.mynews{
+  display: inline-block;
+}
+
+.user-container .del-news{
+  margin-left: 200px;
+  margin-top: 50px;
+  shape-outside: none;
+  background-color: transparent;
+}
+.del-news:hover{
+  color: white;
+  background-color: #141313;
+}
+
+.button-container {
+  display: flex;
+  flex-direction: column;
+}
+.button-container .zatvori{
+  height: 100%;
+  width: 20%;
+  text-align: center;
+  align-items: center;
+}
+
+.button-container h5{
+  text-align: left;
+}
+
+.inputComment {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px; /* Dodajte margine između dugmeta i input polja */
+}
+
+.inputComment input {
+  margin-bottom: 10px;
+  width: 40%; /* Dodajte razmak između input polja */
+}
+
+.inputComment button{
+  text-align: center;
+  margin-top: none;
+}
+/* Dodajte razmak između input polja i dugmeta */
+.komdugme{
+  width: 20%;
+  margin-bottom: 10px;
+}
+
+.sviKomenatri{
+  margin-top: 20px;
+  
+}
+
+.komentar{
+  text-align: center;
+  align-self: flex-start; /* Postavite dugme na početak reda */
+  margin-top: 5px;
+  margin-bottom: 20px;
+  border: 0.1px solid white;
+  width: 100%;
+}
+
+.komentari-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.komentari-table th, .komentari-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.komentari-table th {
+  background-color: #f2f2f2;
+  text-align: left;
+}
+
+
+.nickname{
+  text-align: left;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+.comment-text{
+  text-align: left;
 }

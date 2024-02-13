@@ -5,6 +5,7 @@ import { CgProfile } from "react-icons/cg";
 import { IoIosLogOut } from "react-icons/io";
 import { FaRegListAlt } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
+import { MdAdminPanelSettings } from "react-icons/md";
 
 
 export const sidedata = [
@@ -29,7 +30,13 @@ export const sidedata = [
     },
     {
         title: "MyNews",
-        icon: <FaRegListAlt />
+        icon: <FaRegListAlt />,
+        link: "/mynews"
+    },
+    {
+        title: "Admin",
+        icon: <MdAdminPanelSettings />,
+        link: "/admin"
     }
     
 ]
