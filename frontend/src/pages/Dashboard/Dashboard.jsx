@@ -17,6 +17,7 @@ const navigateToLogIn = () => {
   }
 
 const [data, setData] = useState();
+const [oneData, setOneData] = useState();
 
 //konekcija sa backendom
 const history = useNavigate();
@@ -59,7 +60,8 @@ const upload = () => {
     .then(username => setData(username.data))
     .catch(err => console.log(err))
   }, [])
-    
+
+
     const username = localStorage.getItem('username');
     return(
 

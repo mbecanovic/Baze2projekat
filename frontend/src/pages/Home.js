@@ -5,6 +5,8 @@ import Navbar from "../design/navbar/Navbar.js"
 import { useEffect, useState } from "react"
 import axios from 'axios'
 
+import { CiHeart } from "react-icons/ci";
+
 
 
 export default function Home() {
@@ -62,11 +64,18 @@ console.log(commentData)
     <div className='container'>
   <div className='homepage'>
   {!localStorage.getItem('token') && <Navbar />}
-  {localStorage.getItem('token') && 
+  {localStorage.getItem('token') && <>
       <div className='header'>
       <h1 className="heading-text">E-Novine</h1>
+      <div className='pretrazi'>
+        <input placeholder='Tema'></input>
+        <button className='pretrazi'>Pretrazi</button>
+      </div>
       <button className='profilDugme' onClick={() => { window.location.pathname = "/dashboard" }}>Profil</button>
-      </div>}
+      </div>
+      
+    </>}
+      
   <div className="image-container">
   {reversedData.map((container, index) => {
     return (
@@ -108,13 +117,14 @@ console.log(commentData)
         </div>
             <div className='button-container'>
             <button className='zatvori' onClick={() => setSelectedContainer(null)}>Zatvori</button>
+            </div>
             <div className='inputComment'>
             <h5>Komentarisi post</h5>
             <input type="text" placeholder="Tvoje ime:" required onChange={(e)=>{setNickname(e.target.value)}}/> 
             <input type="text" placeholder="Komentar" required onChange={(e)=>{setComment(e.target.value)}}/> 
             <button className='komdugme' onClick={submitComment}>Komentarisi</button>
             </div>
-            </div>
+            
             <h5>Komentari</h5>
             <div className='komentarii'>
             {commentData

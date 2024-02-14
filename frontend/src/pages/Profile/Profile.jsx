@@ -17,6 +17,7 @@ export default function Profile() {
         <>
             {data.map((profil) => {
                 if (username === profil.username) {
+                    localStorage.setItem('tema', profil.value)
                     return (
                         <div key={profil._id} className="naslov">
                             <Sidebar />

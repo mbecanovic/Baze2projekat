@@ -10,6 +10,7 @@ import ProtectedRoutes from './components/PrivateRoute'
 import Upload from './pages/Dashboard/upload';
 import MyNews from './pages/MyNews'
 import Admin from './pages/admin'
+import ManageUsers from "./pages/manageUsers"
 
 
 function App() {
@@ -27,7 +28,10 @@ const username = localStorage.getItem('username')
           <Route path="/SignUp" element={<SignUp />} />
           <Route path="/Home" element={<Home /> } />
           <Route path="/Profile" element={<Profile />} />
+
           <Route path="/admin" element={<Admin />}  />
+          <Route path="/manageUsers" element={<ManageUsers />}  />
+
           <Route element={<ProtectedRoutes />}>
           <Route path="/Dashboard" element={<Dashboard />} /> 
           </Route>

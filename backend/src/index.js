@@ -28,8 +28,6 @@ app.post('/LogIn', async (req, res) => {
     try {
       const { username, password } = req.body;
       const user = await User.findOne({ username });
-      console.log(user)
-
       if (!user) {
         res.status(401).json({ error: 'Authentication failed' });
         return;
@@ -150,6 +148,19 @@ app.delete('/objavi/:id', async (req, res) => {
           return res.status(404).send({ error: 'Clanak not found' });
       }
       res.send(deletedClanak);
+  } catch (error) {
+      res.status(500).send(error);
+  }
+});
+
+//deleteUSER
+app.delete('/user/:id', async (req, res) => {
+  try {
+      const deletedUser = await User.findByIdAndDelete(req.params.id);
+      if (!deletedUser) {
+          return res.status(404).send({ error: 'User not found' });
+      }
+      res.send(deletedUser);
   } catch (error) {
       res.status(500).send(error);
   }

@@ -11,15 +11,15 @@ mongoose.connect("mongodb+srv://burago01:sifra1234@cluster0.dc1wqq3.mongodb.net/
 const komentarSchema = new mongoose.Schema({
     news_id:{
         type: String,
-        required: false
+        required: true
     },
     nickname:{
         type: String,
-        required: false
+        required: true
     },
     comment:{
         type: String,
-        required: false
+        required: true
     }
 });
 

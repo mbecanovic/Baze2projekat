@@ -8,6 +8,10 @@ export default function Navbar() {
       <Link to="/" className="site-title">
         E-Novine
       </Link>
+      <div className='pretrazi1'>
+        <input placeholder='Tema'></input>
+        <button className='pretrazi1'>Pretrazi</button>
+      </div>
       <ul>
         <CustomLink to="/LogIn">LogIn</CustomLink>
         <CustomLink to="/SignUp">SignUp</CustomLink>

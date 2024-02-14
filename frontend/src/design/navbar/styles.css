@@ -313,12 +313,90 @@ body{
 .button-container {
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 .button-container .zatvori{
   height: 100%;
   width: 20%;
   text-align: center;
   align-items: center;
+}
+
+.zatvori {
+  background-color: #711720; /* Boja pozadine */
+  color: whitesmoke; /* Boja teksta */
+  border: none; /* Uklonite ivicu */
+  padding: 10px 20px; /* Prostor oko teksta */
+  cursor: pointer; /* Kursor pokazivača */
+  border-radius: 5px; /* Zaobljeni uglovi */
+  transition: background-color 0.3s; /* Efekat prelaska */
+}
+
+.zatvori:hover {
+  background-color: #000000; /* Promenjena boja pozadine prilikom prelaska */
+}
+
+.header h1{
+  font-size: 30px;
+}
+.heading-text{
+  font-size: 24px;
+  display: inline-block;
+}
+
+.pretrazi{
+  width: 80%;
+  align-items: center;
+  justify-content: center;
+  margin-right: 50px;
+}
+.pretrazi input{
+  border-radius: 5px;
+  margin-right: 10px;
+  background-color: transparent;
+  backdrop-filter:  blur(5px);
+  color: white;
+  outline: none;
+}
+
+.pretrazi button{
+  width: auto;
+  border-radius: 5px;
+  background-color: black;
+  color: white;
+}
+
+.pretrazi button:hover{
+  background-color: white;
+  color: black;
+}
+
+.pretrazi1{
+  width: 40%;
+  align-items: left;
+  margin-right: 70px;
+  margin-right: 20px;
+  margin-top: 5px;
+}
+.pretrazi1 input{
+  border-radius: 5px;
+  margin-right: 10px;
+  background-color: transparent;
+  backdrop-filter:  blur(5px);
+  color: white;
+  outline: none;
+}
+
+.pretrazi1 button{
+  width: 20%;
+  border-radius: 5px;
+  background-color: black;
+  color: white;
+}
+
+.pretrazi1 button:hover{
+  background-color: white;
+  color: black;
 }
 
 .button-container h5{
@@ -328,7 +406,12 @@ body{
 .inputComment {
   display: flex;
   flex-direction: column;
-  margin-top: 10px; /* Dodajte margine između dugmeta i input polja */
+  margin-top: 10px;
+  align-items: left; /* Dodajte margine između dugmeta i input polja */
+}
+.inputComment h5{
+  position: 0;
+  margin-right: 570px;
 }
 
 .inputComment input {
@@ -344,7 +427,20 @@ body{
 .komdugme{
   width: 20%;
   margin-bottom: 10px;
+  background-color: #171771; /* Boja pozadine */
+  color: whitesmoke; /* Boja teksta */
+  border: none; /* Uklonite ivicu */
+  padding: 10px 20px; /* Prostor oko teksta */
+  cursor: pointer; /* Kursor pokazivača */
+  border-radius: 10px; /* Zaobljeni uglovi */
+  transition: background-color 0.3s; /* Efekat prelaska */
+  outline:#ddd
 }
+
+.komdugme:hover {
+  background-color: #000000; /* Promenjena boja pozadine prilikom prelaska */
+}
+
 
 .sviKomenatri{
   margin-top: 20px;
@@ -358,6 +454,7 @@ body{
   margin-bottom: 20px;
   border: 0.1px solid white;
   width: 100%;
+  
 }
 
 .komentari-table {
@@ -383,4 +480,41 @@ body{
 }
 .comment-text{
   text-align: left;
+}
+
+.user-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 50px;
+}
+
+.user-table th,
+.user-table td {
+  padding: 10px;
+  text-align: left;
+  border: 1px solid #ddd;
+}
+
+.user-table th {
+  background-color: #2c17ea;
+}
+
+.user-row:hover {
+  background-color: #5c1d1d;
+}
+
+.user-row td:last-child {
+  text-align: center;
+}
+
+.user-row button {
+  padding: 5px 10px;
+  border: none;
+  background-color: red;
+  color: white;
+  cursor: pointer;
+}
+
+.user-row button:hover {
+  background-color: darkred;
 }
