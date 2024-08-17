@@ -10,3 +10,19 @@ Ako ste ulogovani kao admin imaćete dodatne privilegije koje običan novinar ne
 ps. ako korisite aplikaciju neophodno je u frontend folderu, kao i backend folderu pokrenuti npm install i time instalirati neophodne "pakete" za rad aplikacije kao sto su axios, react-router-dom, itd. (package.json sadrži neophodne pakete)
 
 Aplikacija uspešno obavlja navedene funkcionalnosti, dinamička je i nema zastoja u radu. 
+
+
+////////english////////
+
+This project involved creating an application that simulates an electronic newspaper using MERN technology. The details developed during the build process of this application can be seen through the commits.
+
+The application is full stack, meaning that communication between the frontend and backend has been successfully established, and the backend is successfully connected to the database.
+Before using the app, a journalist must register and then log in (if the account is not already registered). Once logged in, they are given functionalities such as publishing articles, reviewing them, deleting them, etc. The journalist has their own dashboard where they can view and manage their profile.
+
+If no one is logged in, the application still allows browsing of the published news, as well as commenting. To leave a comment, the viewer must enter their name/nickname; otherwise, the comment will not be saved in the database. If a viewer tries to access the dashboard page, they will be redirected to the login page, as the dashboard is a private, protected route.
+
+If you are logged in as an admin, you will have additional privileges that a regular journalist does not have, such as the ability to review and manage all journalists and the articles they have published. The admin has the ability to remove a journalist and/or delete desired articles.
+
+P.S. If you use the application, it is necessary to run npm install in both the frontend and backend folders to install the required packages for the application, such as axios, react-router-dom, etc. (The package.json file contains the necessary packages).
+
+The application successfully performs the mentioned functionalities, is dynamic, and runs without any delays.
